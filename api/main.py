@@ -24,7 +24,7 @@ def start():
 @app.route('/Details',methods = ['GET','POST'])
 def details():
     content = request.get_json(silent=True)
-    return jsonify(content)
+    return jsonify(db["Bala"])
 
 
 if __name__ == "__main__":
