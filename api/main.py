@@ -21,7 +21,7 @@ db = {
 def start():
     return {"message": "Hello By Flask!"}
 
-@app.route('/Details',method = ['GET','POST'])
+@app.route('/Details',methods = ['GET','POST'])
 def details():
     content = request.get_json(silent=True)
     return content
