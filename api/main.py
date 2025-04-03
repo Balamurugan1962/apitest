@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,jsonify
 
 app = Flask(__name__)
 
@@ -24,7 +24,7 @@ def start():
 @app.route('/Details',methods = ['GET','POST'])
 def details():
     content = request.get_json(silent=True)
-    return content
+    return jsonify(content)
 
 
 if __name__ == "__main__":
