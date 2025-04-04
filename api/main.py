@@ -8,7 +8,7 @@ cors = CORS(app,origins='*')
 api = Api(app)
 
 ChatWithAi_post_args = reqparse.RequestParser()
-ChatWithAi_post_args.add_argument("Type",type=str,help="Either user or system")
+ChatWithAi_post_args.add_argument("Type",type=str,help="Either user or system",required = True)
 ChatWithAi_post_args.add_argument("Message",type=str,help="Messege to send llm's",required = True)
 
 db = {
@@ -30,6 +30,7 @@ class ChatWithAi(Resource):
     def post(self):
         args = ChatWithAi_post_args.parse_args()
         reply = chat(args["Message"])
+        print(reply)
         return jsonify({"reply" : reply})
 
     def get(self):
