@@ -1,6 +1,7 @@
 from flask import Flask,request,jsonify
 from flask_cors import CORS
 from flask_restful import Resource, Api
+from llm_api_call import chat
 
 app = Flask(__name__)
 cors = CORS(app,origins='*')
@@ -34,7 +35,9 @@ api.add_resource(Hello,'/GetInfo')
 
 @app.route('/')
 def start():
-    return {"message": "Hello By Flask! with update"}
+    message = chat("Hi")
+    print(message)
+    return {"LLM Replay": message}
 
 @app.route('/Details',methods = ['GET','POST'])
 def details():
