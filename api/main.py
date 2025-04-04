@@ -31,6 +31,7 @@ class Hello(Resource):
 
 api.add_resource(Hello,'/GetInfo')
 
+
 @app.route('/')
 def start():
     return {"message": "Hello By Flask! with update"}
