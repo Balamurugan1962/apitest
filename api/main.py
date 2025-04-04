@@ -1,8 +1,11 @@
 from flask import Flask,request,jsonify
 from flask_cors import CORS
+from flask_restful import Resourse, Api
 
 app = Flask(__name__)
 cors = CORS(app,origins='*')
+api = Api(app)
+
 
 db = {
     "Bala" : {
@@ -19,9 +22,18 @@ db = {
     }
 }
 
+class Hello(Resourse):
+    def get(self):
+        return jsonify({"Hello":"Hiii"})
+    def put(self):
+        return jsonify({"Hello":"Hiii"})
+    
+
+api.add_resource(Hello,'/GetInfo')
+
 @app.route('/')
 def start():
-    return {"message": "Hello By Flask!"}
+    return {"message": "Hello By Flask! with update"}
 
 @app.route('/Details',methods = ['GET','POST'])
 def details():
