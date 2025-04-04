@@ -18,7 +18,7 @@ def chat(content):
             }
         ],
         temperature=1,
-        max_completion_tokens=1024,
+        max_tokens=1024,
         top_p=1,
         stream=False,
         stop=None,
