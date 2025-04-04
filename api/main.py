@@ -24,9 +24,11 @@ db = {
 }
 
 class Hello(Resource):
+    def post(self):
+        content = request.get_json()
+        return jsonify(content)
+
     def get(self):
-        return jsonify({"Hello":"Hiii"})
-    def put(self):
         return jsonify({"Hello":"Hiii"})
     
 
